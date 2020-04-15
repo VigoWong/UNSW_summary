@@ -1,0 +1,538 @@
+
+<!-- saved from url=(0063)https://www.cse.unsw.edu.au/~cs9311/17s2/lectures/02/notes.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>COMP9311 Week 02 Lecture</title>
+<link href="./COMP9311 Week 02 Lecture_files/notes.css" rel="stylesheet" type="text/css">
+<style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+<body>
+<p><span class="title">COMP9311 Week 02 Lecture</span></p><p>
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Assignment 1</span></td><td align="right"><small>1/35</small></td></tr></tbody></table>
+</p><p>
+Goal: design/implement a data model for a car dealer.
+</p><p>
+Stage 1: Develop ER Data Model in the class
+</p><p>
+Stage 2: Convert the ER Model to SQL Schema
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="section">ER Model</span></td><td align="right"></td></tr></tbody></table>
+</p><p>
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Exercise: Relationship Types</span></td><td align="right"><small>3/35</small></td></tr></tbody></table>
+</p><p>
+Describe the precise semantics of each of the following:
+</p><p>
+</p><p></p><div class="center">
+<img alt="[Diagram:Pic/cardExs-small.png]" src="./COMP9311 Week 02 Lecture_files/cardExs-small.png">
+</div><p>
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Exercise: Medical Information</span></td><td align="right"><small>4/35</small></td></tr></tbody></table>
+</p><p>
+Develop an ER design for the following scenario:
+</p><p>
+<small>
+</small></p><ul><small>
+<li> Patients are identified by an SSN, and their name, address and date
+of birth must be recorded.
+</li><li> Doctors are identified by an SSN. For each doctor, we record their
+name, address, specialties and year of graduation.
+</li><li> A pharmacist is identified by an SSN, and we also record their name,
+address and qualification.
+</li><li> A medical professional is either a doctor or pharmacist, but not both.
+Anyone can be a patient.
+</li><li> For each drug, the trade name and formula must be recorded.
+</li><li> Every patient has a primary physician. Every doctor has at least one
+patient. 
+</li><li> Each pharmacy has a name, address and phone number. A pharmacy must have
+a manager (who is a pharmacist). A pharmacist cannot work in or manage more than
+one pharmacy.
+</li><li> Each pharmacy sells several drugs, and has a price for each. A drug
+could be sold at several pharmacies, and the price could vary between
+pharmacies.
+</li><li> Doctors prescribe drugs for patients. A doctor could prescribe one or
+more drugs for several patients, and a patient could obtain prescriptions
+from several doctors. Each prescription has a date and quantity associated
+with it.
+</li></small></ul><small>
+</small>
+<div class="center">
+<a target="_new" href="https://www.cse.unsw.edu.au/~cs9311/17s2/lectures/02/exercises/medicalER.html">[Solution]</a>
+</div>
+<p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Exercise: Book Publishing</span></td><td align="right"><small>5/35</small></td></tr></tbody></table>
+</p><p>
+Develop an ER design for the following scenario:
+<small>
+</small></p><ul><small>
+<li> for each person, we need to record their tax file number (TFN),
+        their real name, and their address
+</li><li> authors write books, and may publish books using a "pen-name"
+        (a name, different to their real name, which they use as author of books)
+</li><li> editors ensure that books are written in a manner that is
+        suitable for publication
+</li><li> every editor works for just one publisher
+</li><li> editors and authors have quite different skills; someone who is
+        an editor cannot be an author, and vice versa
+</li><li> a book may have several authors, just one author, or no authors
+        (published anonymously)
+</li><li> every book has one editor assigned to it, who liaises with the
+        author(s) in getting the book ready for publication
+</li><li> each book has a title, and an edition number (e.g. 1st, 2nd, 3rd)
+</li><li> each published book is assigned a unique 13-digit number (its ISBN);
+        different editions of the same book will have different ISBNs
+</li><li> publishers are companies that publish (market/distribute) books
+</li><li> each publisher is required to have a unique
+        Australian business number (ABN)
+</li><li> a publisher also has a name and address that need to be recorded
+</li><li> a particular edition of a book is published by exactly one publisher
+</li></small></ul><small>
+</small>
+<div class="center">
+<a target="_new" href="https://www.cse.unsw.edu.au/~cs9311/17s2/lectures/02/exercises/publishER.html">[Solution]</a>
+</div>
+<p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Summary of ER</span></td><td align="right"><small>6/35</small></td></tr></tbody></table>
+</p><p>
+ER model is popular for doing conceptual design
+</p><ul>
+<li> high-level, models relatively easy to understand
+</li><li> good expressive power, can capture many details
+</li></ul>
+Basic constructs: &nbsp; <em>entities, &nbsp; relationships, &nbsp; attributes</em>
+<p>
+Relationship constraints: &nbsp; <em>total / partial, &nbsp; n:m / 1:n / 1:1</em>
+</p><p>
+Other constructs: &nbsp; <em>inheritance hierarchies, &nbsp; weak entities</em>
+</p><p>
+Many notational variants of ER exist <br>
+<small>(especially in the expression of constraints on relationships)</small>
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="section">Assignment 1 Stage 1</span></td><td align="right"></td></tr></tbody></table>
+</p><p>
+</p><div class="center">
+<a target="_new" href="http://cgi.cse.unsw.edu.au/~cs9311/17s2/assignments/a1/index.html">[Spec
+Stage 1]</a>
+</div>
+<p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Relational Data Model</span></td><td align="right"><small>8/35</small></td></tr></tbody></table>
+</p><p>
+The <em>relational data model</em> describes the world as
+</p><ul>
+<li> a collection of inter-connected <em>relations</em> (or <em>tables</em>)
+</li></ul>
+Goal of relational model:
+<ul>
+<li> a simple, general data modelling formalism
+</li><li> which maps easily to file structures <small>(i.e. implementable)</small>
+</li></ul>
+Relational model has two styles of terminology:
+<ul>
+<li> mathematical: &nbsp; relation, &nbsp; tuple, &nbsp; attribute, &nbsp; ...
+</li><li> data-oriented: &nbsp; table, &nbsp; record, &nbsp; field/column, &nbsp; ...
+</li></ul>
+<p>
+<small>
+Warning: textbooks alternate between the two; treat them as synonyms.
+</small>
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="cont">... Relational Data Model</span></td><td align="right"><small>9/35</small></td></tr></tbody></table>
+</p><p>
+The relational model has one structuring mechanism ...
+</p><ul>
+<li> a <em>relation</em> corresponds to a mathematical "relation"
+</li><li> a <em>relation</em> can also be viewed as a "table"
+</li></ul>
+Each <em>relation</em> <small>(denoted <i>R,S,T,...</i>)</small> has:
+<ul>
+<li> a <em>name</em> &nbsp; <small>(unique within a given database)</small>
+</li><li> a set of <em>attributes</em> &nbsp; <small>(which can be viewed as column headings)</small>
+</li></ul>
+Each <em>attribute</em> <small>(denoted <i>A,B,...</i> or <i>a<sub>1</sub>,a<sub>2</sub>,...</i>)</small> has:
+<ul>
+<li> a <em>name</em> &nbsp; <small>(unique within a given relation)</small>
+</li><li> an associated <em>domain</em> &nbsp; <small>(set of allowed values)</small>
+</li></ul>
+DB definition also uses <em>constraints</em> &nbsp; <small>(logic expressions)</small>
+<p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="cont">... Relational Data Model</span></td><td align="right"><small>10/35</small></td></tr></tbody></table>
+</p><p>
+Example relation (bank accounts):
+</p><p>
+</p><p></p><div class="center">
+<img alt="[Diagram:Pic/table-small.png]" src="./COMP9311 Week 02 Lecture_files/table-small.png">
+</div><p>
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="cont">... Relational Data Model</span></td><td align="right"><small>11/35</small></td></tr></tbody></table>
+</p><p>
+Points to note ...
+</p><p>
+Attribute values are <em>atomic</em> &nbsp; <small>(no composite or multi-valued attributes)</small>.
+</p><p>
+A distinguished value <large><code>NULL</code></large> belongs to all domains.
+<small>
+</small></p><ul><small>
+<li> <large><code>NULL</code></large> has several interpretations: none, don't know, irrelevant
+</li></small></ul><small>
+</small>
+<p>
+Each relation has a <em>key</em> &nbsp; <small>(subset of attributes unique for each tuple)</small>
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="cont">... Relational Data Model</span></td><td align="right"><small>12/35</small></td></tr></tbody></table>
+</p><p>
+Consider relation <i>R</i> with attributes
+<i>a<sub>1</sub>, a<sub>2</sub>, ... a<sub>n</sub></i>
+</p><p>
+<em>Relation schema</em> of <i>R</i> : &nbsp;
+<i><b>R</b>(a<sub>1</sub>:D<sub>1</sub>, a<sub>2</sub>:D<sub>2</sub>, ... a<sub>n</sub>:D<sub>n</sub>)</i>
+</p><p>
+<em>Tuple</em> of <i>R</i> : an element of <i>D<sub>1</sub> × D<sub>2</sub> × ... × D<sub>n</sub></i> &nbsp; <small>(i.e. list of values)</small>
+</p><p>
+<em>Instance</em> of <i>R</i> :
+subset of <i>D<sub>1</sub> × D<sub>2</sub> × ... × D<sub>n</sub></i> &nbsp; <small>(i.e. set of tuples)</small>
+</p><p>
+<em>Database schema</em> : a collection of relation schemas.
+</p><p>
+<em>Database (instance)</em> : a collection of relation instances.
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">DBMS Terminology</span></td><td align="right"><small>13/35</small></td></tr></tbody></table>
+</p><p>
+Many DBMSs have multiple namespaces:
+</p><ul>
+<li> DBMS-level ... database names must be unique
+</li><li> database-level ... schema names must be unique
+</li><li> schema-level ... table names must be unique
+</li><li> table-level ... attribute names must be unique
+</li></ul>
+Sometimes it is convenient to use same name in several tables.
+<p>
+We distinguish which attribute we mean using <em>qualified names</em>
+</p><p>
+E.g. <large><code>Account.branchName</code></large> &nbsp; vs &nbsp; <large><code>Branch.branchName</code></large>
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Example Database Schema</span></td><td align="right"><small>14/35</small></td></tr></tbody></table>
+</p><p>
+Schema with 4 relations:
+</p><p>
+</p><p></p><div class="center">
+<img alt="[Diagram:Pic/schema-small.png]" src="./COMP9311 Week 02 Lecture_files/schema-small.png">
+</div><p>
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="cont">... Example Database Schema</span></td><td align="right"><small>15/35</small></td></tr></tbody></table>
+</p><p>
+Schema is derived from the following ER design:
+</p><p>
+</p><p></p><div class="center">
+<img alt="[Diagram:Pic/schemaER-small.png]" src="./COMP9311 Week 02 Lecture_files/schemaER-small.png">
+</div><p>
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Example Database (Instance)</span></td><td align="right"><small>16/35</small></td></tr></tbody></table>
+</p><p>
+</p><p></p><div class="center">
+<img alt="[Diagram:Pic/db-small.png]" src="./COMP9311 Week 02 Lecture_files/db-small.png">
+</div><p>
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Integrity Constraints</span></td><td align="right"><small>17/35</small></td></tr></tbody></table>
+</p><p>
+<em>Relations</em> are used to represent entities <i>and</i> relationships.
+</p><p>
+<em>Domains</em> limit the set of values that attributes can take.
+</p><p>
+To represent real-world problems, need to describe
+</p><ul>
+<li> what values are/are not allowed
+</li><li> what combinations of values are/are not allowed
+</li></ul>
+<em>Constraints</em> are logical statements that do this:
+<ul>
+<li> domain, key, entity integrity, referential integrity, ...
+</li></ul>
+<p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="cont">... Integrity Constraints</span></td><td align="right"><small>18/35</small></td></tr></tbody></table>
+</p><p>
+<em>Domain constraints</em> example:
+</p><ul>
+<li> <large><code>Employee.age</code></large> attribute is typically defined as <large><code>integer</code></large>
+</li><li> better modelled by adding extra constraint <large><code>(15&lt;age&lt;66)</code></large>
+</li></ul>
+Note: <large><code>NULL</code></large> satisfies all domain constraints
+	&nbsp; <small>(except (NOT NULL))</small>
+<p>
+<em>Key constraints</em> example:
+</p><ul>
+<li> <large><code>Student( id, ...)</code></large> is guaranteed unique
+</li><li> <large><code>Class(...,day,time,location,...)</code></large> is unique
+</li></ul>
+<p>
+<em>Entity integrity</em> example:
+</p><ul>
+<li> <large><code>Class(...,Mon,2pm,Lyre,...)</code></large> is well-defined
+</li><li> <large><code>Class(...,</code></large><b>NULL</b><large><code>,2pm,Lyre,...)</code></large> is not well-defined
+</li></ul>
+<p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Referential Integrity</span></td><td align="right"><small>19/35</small></td></tr></tbody></table>
+</p><p>
+<em>Referential integrity constraints</em>
+</p><ul>
+<li> describe references between relations (tables)
+</li><li> are related to notion of a <em>foreign key</em> (FK)
+</li></ul>
+Example:
+<p></p><div class="center">
+<img alt="[Diagram:Pic/fkeys-small.png]" src="./COMP9311 Week 02 Lecture_files/fkeys-small.png">
+</div><p>
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="cont">... Referential Integrity</span></td><td align="right"><small>20/35</small></td></tr></tbody></table>
+</p><p>
+A set of attributes <i>F</i> in relation <i>R<sub>1</sub></i>
+	is a <em>foreign key</em> for <i>R<sub>2</sub></i> if:
+</p><ul>
+<li> the attributes in <i>F</i> correspond to the primary key of <i>R<sub>2</sub></i>
+</li><li> the value for <i>F</i> in each tuple of <i>R<sub>1</sub></i>
+<ul>
+<li> either &nbsp; occurs as a primary key in <i>R<sub>2</sub></i>
+</li><li> or &nbsp; is entirely <large><code>NULL</code></large>
+</li></ul>
+</li></ul>
+Foreign keys are critical in relational DBs; they provide ...
+<ul>
+<li> the "glue" that links individual relations (tables)
+</li><li> the way to assemble query answers from multiple tables
+</li><li> the relational representation of ER relationships
+</li></ul>
+<p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Relational Databases</span></td><td align="right"><small>21/35</small></td></tr></tbody></table>
+</p><p>
+A <em>relational database schema</em> is
+</p><ul>
+<li> a set of relation schemas
+	&nbsp; <i>{ R<sub>1</sub>, &nbsp; R<sub>2</sub>, &nbsp;...&nbsp; R<sub>n</sub> }</i> ,
+	&nbsp; and
+</li><li> a set of integrity constraints
+</li></ul>
+A <em>relational database instance</em> is
+<ul>
+<li> a set of relation instances
+	&nbsp; <i>{ r<sub>1</sub>(R<sub>1</sub>), &nbsp; r<sub>2</sub>(R<sub>2</sub>), &nbsp;...&nbsp; r<sub>n</sub>(R<sub>n</sub>) }</i>
+</li><li> where all of the integrity constraints are satisfied
+</li></ul>
+One of the important functions of a relational DBMS:
+<ul>
+<li> ensure that all data in the database satisfies constraints
+</li></ul>
+<p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Describing Relational Schemas</span></td><td align="right"><small>22/35</small></td></tr></tbody></table>
+</p><p>
+We need a formalism to express relational schemas <br>
+<small>(which is more detailed than boxes-and-arrows diagrams used above)</small>
+</p><p>
+SQL provides a <em>D</em>ata <em>D</em>efinition <em>L</em>anguage (DDL) for this.
+</p><p>
+</p><pre><b>CREATE TABLE</b> <i>TableName</i> <b>(</b>
+    <i>attrName<sub>1</sub></i> <i>domain<sub>1</sub></i> <i>constraints<sub>1</sub></i> <b>,</b>
+    <i>attrName<sub>2</sub></i> <i>domain<sub>2</sub></i> <i>constraints<sub>2</sub></i> <b>,</b>
+    ...
+    <b>PRIMARY KEY</b> (<i>attr<sub>i</sub></i>,<i>attr<sub>j</sub></i>,...)
+    <b>FOREIGN KEY</b> (<i>attr<sub>x</sub></i>,<i>attr<sub>y</sub></i>,...)
+                <b>REFERENCES</b>
+                <i>OtherTable</i> (<i>attr<sub>m</sub></i>,<i>attr<sub>n</sub></i>,...)
+<b>);</b>
+</pre>
+<p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">SQL Syntax in a Nutshell</span></td><td align="right"><small>23/35</small></td></tr></tbody></table>
+</p><p>
+Comments: everything after <font color="#0000CC"><large><font color="#008800"><b><code>--</code></b></font></large> <i>is a comment</i></font>
+</p><p>
+Identifiers: alphanumeric (a la C), but also <large><code>"An Identifier"</code></large>
+</p><p>
+Reserved words: many e.g. <large><code>CREATE</code></large>, <large><code>SELECT</code></large>, <large><code>TABLE</code></large>, ...
+</p><p>
+Strings: e.g. <large><code>'a string'</code></large>, &nbsp;<large><code>'don''t ask'</code></large>, &nbsp;but no <large><code>'\n'</code></large> 
+</p><p>
+Numbers: like C, e.g. <large><code>1</code></large>, &nbsp;<large><code>-5</code></large>, &nbsp;<large><code>3.14159</code></large>, &nbsp;...
+</p><p>
+Identifiers and reserved words are case-insensitive: <br>
+<large><code>TableName</code></large> = <large><code>tablename</code></large> = <large><code>TaBLeNamE</code></large> != <large><code>"TableName"</code></large>
+</p><p>
+Types: &nbsp;<large><code>integer</code></large>, &nbsp;<large><code>float</code></large>, &nbsp;<large><code>char(</code></large><i>n</i><large><code>)</code></large>, &nbsp;<large><code>varchar(</code></large><i>n</i><large><code>)</code></large>, &nbsp;<large><code>date</code></large>, ...
+</p><p>
+Operators: &nbsp;<large><code>=</code></large>, &nbsp;<large><code>&lt;&gt;</code></large>, &nbsp;<large><code>&lt;</code></large>, &nbsp;<large><code>&lt;=</code></large>, &nbsp;<large><code>&gt;</code></large>, &nbsp;<large><code>&gt;=</code></large>, &nbsp;<large><code>AND</code></large>, &nbsp;<large><code>OR</code></large>, &nbsp;<large><code>NOT</code></large>, ...
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Exercise: Simple Relational Schema</span></td><td align="right"><small>24/35</small></td></tr></tbody></table>
+</p><p>
+Express the following schema in SQL DDL:
+</p><p></p><div class="center">
+<img alt="[Diagram:Pic/fkeys-small.png]" src="./COMP9311 Week 02 Lecture_files/fkeys-small.png">
+</div><p>
+Assume only two domains: <large><code>text</code></large> and <large><code>integer</code></large>.
+</p><div class="center">
+<a target="_new" href="https://www.cse.unsw.edu.au/~cs9311/17s2/lectures/02/exercises/bank.sql">[Solution]</a>
+</div>
+<p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="cont">... Exercise: Simple Relational Schema</span></td><td align="right"><small>25/35</small></td></tr></tbody></table>
+</p><p>
+Augment the previous schema to enforce:
+</p><ul>
+<li> no accounts can be overdrawn
+</li><li> customer numbers are seven-digit integers
+</li><li> account numbers look like <large><code>A-101</code></large>, <large><code>B-306</code></large>, etc.
+</li><li> the assets of a branch is the sum of the balances in
+	all of the accounts held at that branch
+</li></ul>
+Assume that all standard SQL types (domains) are available.
+<p>
+Add new domain to define account numbers and use it throughout
+</p><div class="center">
+<a target="_new" href="https://www.cse.unsw.edu.au/~cs9311/17s2/lectures/02/exercises/bank1.sql">[Solution]</a>
+</div>
+<p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="section">Mapping ER Designs to Relational Schemas</span></td><td align="right"></td></tr></tbody></table>
+</p><p>
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">ER to Relational Mapping</span></td><td align="right"><small>27/35</small></td></tr></tbody></table>
+</p><p>
+One useful strategy for database design:
+</p><ul>
+<li> perform initial data modelling using ER or OO <br>
+	<small>(conceptual-level modelling)</small>
+</li><li> transform conceptual design into relational model <br>
+	<small>(implementation-level modelling)</small>
+</li></ul>
+A formal mapping exists for ER model <i>&#8594;</i> Relational model.
+<p>
+This maps "structures"; but additional info is needed, e.g.
+</p><ul>
+<li> concrete domains for attributes and other constraints
+</li></ul>
+<p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Relational Model vs ER Model</span></td><td align="right"><small>28/35</small></td></tr></tbody></table>
+</p><p>
+Correspondences between relational and ER data models:
+</p><ul>
+<li> attribute<small>(ER)</small> <i>&#8773;</i> attribute<small>(Rel)</small>,&nbsp;
+entity<small>(ER)</small> <i>&#8773;</i> tuple<small>(Rel)</small>
+</li><li> entity set<small>(ER)</small> <i>&#8773;</i> relation<small>(Rel)</small>,&nbsp;
+relationship<small>(ER)</small> <i>&#8773;</i> relation<small>(Rel)</small>
+</li></ul>
+Differences between relational and ER models:
+<ul>
+<li> Rel uses relations to model entities <i>and</i> relationships
+</li><li> Rel has no composite or multi-valued attributes <small>(only atomic)</small>
+</li><li> Rel has no object-oriented notions <small>(e.g. subclasses, inheritance)</small>
+</li></ul>
+<p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Mapping Strong Entities</span></td><td align="right"><small>29/35</small></td></tr></tbody></table>
+</p><p>
+An entity set <i>E</i> with atomic attributes
+	<i>a<sub>1</sub>, a<sub>2</sub>, ... a<sub>n</sub></i>
+</p><p>
+maps to
+</p><p>
+A relation <i>R</i> with attributes (columns)
+	<i>a<sub>1</sub>, a<sub>2</sub>, ... a<sub>n</sub></i>
+</p><p>
+Example:
+</p><p></p><div class="center">
+<img alt="[Diagram:Pic/strongent-small.png]" src="./COMP9311 Week 02 Lecture_files/strongent-small.png">
+</div><p>
+Note: the key is preserved in the mapping.
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Mapping Weak Entities</span></td><td align="right"><small>30/35</small></td></tr></tbody></table>
+</p><p>
+Example:
+</p><p></p><div class="center">
+<img alt="[Diagram:Pic/mapwkent-small.png]" src="./COMP9311 Week 02 Lecture_files/mapwkent-small.png">
+</div><p>
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Mapping N:M Relationships</span></td><td align="right"><small>31/35</small></td></tr></tbody></table>
+</p><p>
+Example:
+</p><p></p><div class="center">
+<img alt="[Diagram:Pic/mapnnrel-small.png]" src="./COMP9311 Week 02 Lecture_files/mapnnrel-small.png">
+</div><p>
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Mapping 1:N Relationships</span></td><td align="right"><small>32/35</small></td></tr></tbody></table>
+</p><p>
+Example:
+</p><p></p><div class="center">
+<img alt="[Diagram:Pic/map1nrel2-small.png]" src="./COMP9311 Week 02 Lecture_files/map1nrel2-small.png">
+</div><p>
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Exercise: ER-to-Relational (1)</span></td><td align="right"><small>33/35</small></td></tr></tbody></table>
+</p><p>
+Convert this ER design to relational form:
+</p><p></p><div class="center">
+<img alt="[Diagram:Pic/simpleER-small.png]" src="./COMP9311 Week 02 Lecture_files/simpleER-small.png">
+</div><p>
+</p><div class="center">
+<a target="_new" href="https://www.cse.unsw.edu.au/~cs9311/17s2/lectures/02/exercises/shopping.sql">[Solution]</a>
+</div>
+<p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Mapping 1:1 Relationships</span></td><td align="right"><small>34/35</small></td></tr></tbody></table>
+</p><p>
+Example:
+</p><p></p><div class="center">
+<img alt="[Diagram:Pic/map11rel-small.png]" src="./COMP9311 Week 02 Lecture_files/map11rel-small.png">
+</div><p>
+</p><p></p><hr><p>
+<table width="100%" cellpadding="0">
+<tbody><tr valign="top"><td align="left"><span class="heading">Exercise: ER-to-Relational (2)</span></td><td align="right"><small>35/35</small></td></tr></tbody></table>
+</p><p>
+Convert this ER design to relational form:
+</p><p></p><div class="center">
+<img alt="[Diagram:Pic/emp-dept-proj-small.png]" src="./COMP9311 Week 02 Lecture_files/emp-dept-proj-small.png">
+</div><p>
+</p><div class="center">
+<a target="_new" href="https://www.cse.unsw.edu.au/~cs9311/17s2/lectures/02/exercises/empproj.sql">[Solution]</a>
+</div>
+<p></p><hr><p>
+<small><small>Produced: 3 Aug 2017</small></small>
+
+
+</p></body></html>
