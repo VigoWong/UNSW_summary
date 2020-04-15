@@ -1,0 +1,3 @@
+/Users/huhawel/Documents/unsw_course/9315/assin2/mywork/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/huhawel/Documents/unsw_course/9315/assin2/mywork/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/huhawel/Documents/unsw_course/9315/assin2/mywork/cmake-build-debug/CMakeFiles/mywork.dir

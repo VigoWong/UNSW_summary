@@ -1,0 +1,21 @@
+
+-- Check to see whether hash index works
+
+CREATE INDEX
+                                                      QUERY PLAN                                                      
+----------------------------------------------------------------------------------------------------------------------
+ Index Scan using hash_file on students  (REMOVED_TIME rows=1 REMOVED_WIDTH) (REMOVED_TIME rows=10 loops=1)
+   Index Cond: (name = 'Biskin,Diana Hannah'::personname)
+REMOVED_TIME
+REMOVED_TIME
+(4 rows)
+
+                                                     QUERY PLAN                                                      
+---------------------------------------------------------------------------------------------------------------------
+ Index Scan using hash_file on students  (REMOVED_TIME rows=1 REMOVED_WIDTH) (REMOVED_TIME rows=1 loops=1)
+   Index Cond: (name = 'Han,Hao Yao'::personname)
+REMOVED_TIME
+REMOVED_TIME
+(4 rows)
+
+DROP INDEX
