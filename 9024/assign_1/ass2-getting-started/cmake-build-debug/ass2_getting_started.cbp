@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="ass2_getting_started"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ass2_getting_started">
+				<Option output="/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/ass2_getting_started" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 ass2_getting_started"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ass2_getting_started/fast">
+				<Option output="/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/ass2_getting_started" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 ass2_getting_started/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/exTkns.c">
+			<Option target="ass2_getting_started"/>
+		</Unit>
+		<Unit filename="/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/sample1.txt">
+			<Option target="ass2_getting_started"/>
+		</Unit>
+		<Unit filename="/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

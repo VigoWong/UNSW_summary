@@ -1,0 +1,3 @@
+/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/huhawel/Documents/unsw_course/9024/assign_1/ass2-getting-started/cmake-build-debug/CMakeFiles/ass2_getting_started.dir
